@@ -2,19 +2,20 @@
 
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+# Table of Contents
 
 - [Task](#task)
   - [Get Task List](#get-task-list)
     - [Endpoint: `GET /tasks`](#endpoint-get-tasks)
-      - [Parameters](#parameters)
-      - [Example Request](#example-request)
+      - [Query Parameters](#query-parameters)
+      - [Variables](#variables)
     - [Response](#response)
       - [Response Fields](#response-fields)
     - [Python Code](#python-code)
   - [Get Task Detail](#get-task-detail)
     - [Endpoint: `GET /tasks/:task_id`](#endpoint-get-taskstask_id)
-      - [Example Request](#example-request-1)
+      - [Query Parameters](#query-parameters-1)
+      - [Variables](#variables-1)
     - [Response](#response-1)
       - [Response Fields](#response-fields-1)
     - [Python Code](#python-code-1)
@@ -29,18 +30,26 @@ This API retrieves a list of tasks with their relevant information, including ta
 
 ### Endpoint: `GET /tasks`
 
-#### Parameters
+```p=
+curl --location 'http://SERVER_URL/tasks' \
+--header 'Authorization: Bearer ACCESS_TOKEN'
+```
+
+#### Query Parameters
 
 Parameter  | Description | Type | Required
 ------------- | ------------- | ------------- | -------------
-offset | Offset for pagination. (default 0) | integer | No
 limit | Limit the number of results per page. (default 100) | integer | No
-location_id | Filter tasks by location ID. (default all) | integer | No
-camera_id | Filter tasks by camera ID. (default all) | integer | No
+offset | Offset for pagination. (default 0) | integer | No
+location_id | Filter tasks by location ID. | integer | No
+camera_id | Filter tasks by camera ID. | integer | No
 
-#### Example Request
+#### Variables
 
-`GET /tasks?offset=0&limit=10`
+Variable  | How to Get
+------------- | -------------
+SERVER_URL | Please ask LinkerVision.
+ACCESS_TOKEN | Please refer to [Token page](https://github.com/linkervision/observ-api-example/blob/main/docs/Token.md).
 
 ### Response
 
@@ -98,17 +107,12 @@ TaskStatus
 ```python
 import requests
 response = requests.get(
-    https://SERVER_URL/tasks?offset=0&limit=10,
+    "https://SERVER_URL/tasks?offset=0&limit=10",
     headers={"Authorization": "Bearer ACCESS_TOKEN"},
     timeout=10,
 )
 response_json = response.json()
 ```
-
-Variables
-
-- **SERVER_URL**: Please ask LinkerVision
-- **ACCESS_TOKEN**: Please refer to [Token page](https://github.com/linkervision/observ-api-example/blob/main/docs/Token.md)
 
 ## Get Task Detail
 
@@ -116,13 +120,23 @@ This API retrieves detailed information about a specific task, including the tas
 
 ### Endpoint: `GET /tasks/:task_id`
 
+```p=
+curl --location 'http://SERVER_URL/tasks/1' \
+--header 'Authorization: Bearer ACCESS_TOKEN'
+```
+
+#### Query Parameters
+
 Parameter  | Description | Type | Required
 ------------- | ------------- | ------------- | -------------
 task_id | The unique identifier for the task. | integer | Yes
 
-#### Example Request
+#### Variables
 
-`GET /tasks/1`
+Variable  | How to Get
+------------- | -------------
+SERVER_URL | Please ask LinkerVision.
+ACCESS_TOKEN | Please refer to [Token page](https://github.com/linkervision/observ-api-example/blob/main/docs/Token.md).
 
 ### Response
 
@@ -250,15 +264,10 @@ TaskStatus
 import requests
 
 response = requests.get(
-    https://SERVER_URL/tasks/1,
+    "https://SERVER_URL/tasks/1",
     headers={"Authorization": "Bearer ACCESS_TOKEN"},
     timeout=10,
 )
 
 response_json = response.json()
 ```
-
-Variables
-
-- **SERVER_URL**: Please ask LinkerVision
-- **ACCESS_TOKEN**: Please refer to [Token page](https://github.com/linkervision/observ-api-example/blob/main/docs/Token.md)
