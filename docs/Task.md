@@ -2,6 +2,8 @@
 
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 # Table of Contents
 
 - [Task](#task)
@@ -11,6 +13,7 @@
       - [Variables](#variables)
     - [Response](#response)
       - [Response Fields](#response-fields)
+        - [TaskStatus](#taskstatus)
     - [Python Code](#python-code)
   - [Get Task Detail](#get-task-detail)
     - [Endpoint: `GET /tasks/:task_id`](#endpoint-get-taskstask_id)
@@ -18,6 +21,7 @@
       - [Variables](#variables-1)
     - [Response](#response-1)
       - [Response Fields](#response-fields-1)
+        - [TaskStatus](#taskstatus-1)
     - [Python Code](#python-code-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -91,7 +95,7 @@ camera_id | The ID of the camera used for the task. | integer
 camera_rtsp | The RTSP URL of the camera. | string
 status | The status of the task. | TaskStatus
 
-TaskStatus
+##### TaskStatus
 
 - `operating, normal`
 - `operating, slow`
@@ -247,7 +251,7 @@ confidence_threshold | The confidence threshold for each detected object. | obje
 object_size_filter | The size filter for each detected object. | object
 status | The status of the task. | string
 
-TaskStatus
+##### TaskStatus
 
 - `operating, normal`
 - `operating, slow`
